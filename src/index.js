@@ -9,7 +9,10 @@ import { connect } from './config/db/index.js';
 const app = express();
 
 const hbs = create({
-    extname: '.hbs'
+    extname: '.hbs',
+    helpers: {
+        sum: (a,b) => a+b
+    }
 });
 
 connect();
