@@ -9,16 +9,46 @@
   </thead>
   <tbody>
     {{#each courses}}
-      <tr>
-        <th scope="row">{{sum @index 1}}</th>
-        <td>{{this.name}}</td>
-        <td>{{this.age}}</td>
-        <td>{{this.sex}}</td>
-        <td>
-          <a href="/courses/{{this._id}}" class="btn btn-link">Sua</a>
-          <a href="#" class="btn btn-link">Xoa</a>
-        </td>
-      </tr>
+    <tr>
+      <th scope="row">{{sum @index 1}}</th>
+      <td>{{this.name}}</td>
+      <td>{{this.age}}</td>
+      <td>{{this.sex}}</td>
+      <td>
+        <a href="/courses/{{this._id}}/edit" class="btn btn-link">Sua</a>
+        <a href="" class="btn btn-link" data-toggle="modal" data-id="{{this._id}}" data-target="#delete-modal">Xoa</a>
+      </td>
+    </tr>
     {{/each}}
   </tbody>
 </table>
+
+<div id="delete-modal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Delete</h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger">Delete</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  document.addEventListener('DOMContenLoaded', function () {
+    $('#delete-modal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget);
+      var id = button.data('id');
+      console.log(id);
+    });
+  });
+
+</script>

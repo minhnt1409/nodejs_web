@@ -19,8 +19,25 @@ class CoursesController {
         course.save({})
             .then(res.redirect('/'))
             .catch(next);
+    }
 
-        res.send('courses/store');
+    update(req, res, next) {
+        Course.findByIdAndUpdate( req.params.id, req.body)
+            .then(res.redirect('/me/list'))
+            .catch(next);
+    }
+
+    edit(req, res, next) {
+        Course.findById(req.params.id)
+            .then((courses) => {
+                res.render('courses/edit', courses);
+            })
+            .catch(next);
+    }
+    delete(req, res, next) {
+        Course.findByIdAndDelete( req.params.id)
+            .then(res.redirect('back'))
+            .catch(next);
     }
 }
 
