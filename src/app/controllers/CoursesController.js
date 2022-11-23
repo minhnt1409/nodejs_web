@@ -22,7 +22,7 @@ class CoursesController {
     }
 
     update(req, res, next) {
-        Course.findByIdAndUpdate( req.params.id, req.body)
+        Course.findByIdAndUpdate(req.params.id, req.body)
             .then(res.redirect('/me/list'))
             .catch(next);
     }
@@ -34,8 +34,9 @@ class CoursesController {
             })
             .catch(next);
     }
+
     delete(req, res, next) {
-        Course.findByIdAndDelete( req.params.id)
+        Course.findByIdAndDelete(req.params.id)
             .then(res.redirect('back'))
             .catch(next);
     }

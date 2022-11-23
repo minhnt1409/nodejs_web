@@ -16,7 +16,7 @@
       <td>{{this.sex}}</td>
       <td>
         <a href="/courses/{{this._id}}/edit" class="btn btn-link">Sua</a>
-        <a href="" class="btn btn-link" data-toggle="modal" data-id="{{this._id}}" data-target="#delete-modal">Xoa</a>
+        <a href="" class="btn btn-link" data-toggle="modal" data-id={{this._id}} data-target="#delete-modal">Xoa</a>
       </td>
     </tr>
     {{/each}}
@@ -34,21 +34,33 @@
         <p>Are you sure?</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger">Delete</button>
+        <button id="btn-delete-modal" type="button" class="btn btn-danger">Delete</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
 </div>
 
-<script>
+<form id="btn-delete-form" method="post"></form>
 
-  document.addEventListener('DOMContenLoaded', function () {
-    $('#delete-modal').on('show.bs.modal', function (event) {
-      var button = $(event.relatedTarget);
-      var id = button.data('id');
-      console.log(id);
-    });
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    var id;
+    var deleteForm = document.getElementById('btn-delete-form');
+    var btnDelete = document.getElementById('btn-delete-modal');
+
+    $('#delete-modal').on('shown.bs.modal', function (event) {
+      console.log(event);
+      const button = $(event.relatedTarget);
+      id = button.data('id');
+      console.log(button);
+       console.log(id);
+    })
+
+    btnDelete.onclick = function () {
+      deleteForm.action = '/courses/' + id + '?_method=delete';
+      deleteForm.submit();
+    }
   });
 
 </script>
