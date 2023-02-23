@@ -1,17 +1,22 @@
-import Course from '../models/Course.js'
+import Phong from '../models/Room.js'
 import { multipleMongooseToObject } from '../../until/mongoose.js'
 
 class SiteController {
     home(req, res, next) {
-        Course.find({})
-            .then(courses => {
-                res.render('home', { courses: multipleMongooseToObject(courses) });
+        Phong.find({})
+            .then(rooms => {
+                console.log("abc");
+                res.render('home', { rooms: multipleMongooseToObject(rooms) });
             })
             .catch(next);
     }
-
-    search(req, res) {
-        res.render('search');
+    history(req, res, next) {
+        Phong.find({})
+            .then(rooms => {
+                console.log("abc");
+                res.render('home', { rooms: multipleMongooseToObject(rooms) });
+            })
+            .catch(next);
     }
 }
 

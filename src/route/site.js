@@ -7,6 +7,7 @@ import { SiteController } from '../app/controllers/SiteController.js';
 const siteController = new SiteController;  
 
 router.get('/', siteController.home);
-router.get('/search', siteController.search);
+
+router.get('/history', siteController.history);
 
 export { router };
