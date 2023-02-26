@@ -3,16 +3,31 @@
         {{#each rooms}}
         <div class="col-sm-10 col-lg-3">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body" id="card_{{this.id_phong}}">
                     <a href="/rooms/{{this.id_phong}}">
-                        <h5 class="card-title">{{this.ten_phong}}</h5>               
+                        <h4 class="card-title" style="color: black;">{{this.ten_phong}}</h4>               
                     </a>
                     <p class="card-text">{{this.loai_phong}}</p>
                     <p class="card-text">{{this.gia_phong}}</p>
-                    <p class="card-text">{{this.trang_thai}}</p>
+                    <p class="card-text" id="trang_thai-{{this.trang_thai}}" value={{this.trang_thai}}>{{this.trang_thai}}</p>
                 </div>
             </div>
         </div>
+        <script>
+            var card = document.getElementById("card_{{this.id_phong}}");
+            var trangthai = document.getElementById("trang_thai-{{this.trang_thai}}").getAttribute('value')
+            console.log(trangthai);
+            if (trangthai == 'ready') {
+                card.style.backgroundColor = "green";
+            }
+            if (trangthai == 'hired') {
+                card.style.backgroundColor = "yellow";
+            }
+            if(trangthai == 'fixing') {
+                card.style.backgroundColor = "red";
+            }
+            
+        </script>
         {{/each }}
     </div>
 </div>

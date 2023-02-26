@@ -1,20 +1,32 @@
 <div class="mt-4">
-    <h3> Cap Nhat Thong Tin</h3>
+    <h3>Cập Nhật Thông Tin</h3>
 
-    <form method="post" action="/courses/{{this._id}}?_method=put">
+    <form method="post" action="/rooms/store">
         <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" name="name" value="{{this.name}}">
+            <label for="name">Id Phòng</label>
+            <input type="text" class="form-control" id="id_phong" name="id_phong" value={{this.id_phong}}>
         </div>
         <div class="form-group">
-            <label for="Age">Age</label>
-            <input type="text" class="form-control" id="age" name="age" value="{{this.age}}">
+            <label for="ten_phong">Tên Phòng </label>
+            <input type="text" class="form-control" id="ten_phong" name="ten_phong" value="{{this.ten_phong}}">
         </div>
         <div class="form-group">
-            <label for="sex">Sex</label>
-            <input type="text" class="form-control" id="sex" name="sex" value="{{this.sex}}">
+            <label for="loai_phong">Loại Phòng</label>
+            <input type="text" class="form-control" id="loai_phong" name="loai_phong" value="{{this.loai_phong}}">
+        </div>
+        <div class="form-group">
+            <label for="gia_phong">Giá Phòng</label>
+            <input type="text" class="form-control" id="gia_phong" name="gia_phong" value="{{this.gia_phong}}">
+        </div>
+        <div class="form-group">
+            <label for="so_nguoi_toi_da">Số người tối đa</label>
+            <input type="text" class="form-control" id="so_nguoi_toi_da" name="so_nguoi_toi_da" value={{this.so_nguoi_toi_da}}>
+        </div>
+        <div class="form-group">
+            <label for="trang_thai">Trạng thái</label>
+            <input type="text" class="form-control" id="trang_thai" name="trang_thai" value="{{this.trang_thai}}">
         </div>
 
-        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="submit" class="btn btn-primary" name="submit" value="edit">Cập nhật</button>
     </form>
 </div>
