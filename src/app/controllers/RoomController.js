@@ -62,7 +62,7 @@ class RoomController {
             req.body.check_in = null;
             console.log(req.body);
         }
-        // console.log(req.body);
+        console.log(req.body);
         Room.findOneAndUpdate({id_phong: req.body.id_phong}, req.body)
             .then(res.redirect('/rooms/' + req.body.id_phong))
             .catch(next);

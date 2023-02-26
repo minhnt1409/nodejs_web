@@ -12,6 +12,7 @@ const Room = new Schema({
     so_nguoi_hien_tai: { type: Number, DEFAULT: 0},
     ten_nguoi_dai_dien: { type: String },
     id_nguoi_dai_dien: { type: Number },
+    phuong_thuc_thue: { type: String, default: null},
     check_in: {type: String},
 });
 
