@@ -3,3 +3,21 @@
 h1{
     color: $red;
 }
+
+.container{
+    display: flex;
+}
+
+.view {
+    display: flex;
+    height: 100%;
+}
+
+.view .static{
+    width:25%;
+}
+  
+.view .show {
+    width: 70%;
+    
+}

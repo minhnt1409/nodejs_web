@@ -1,97 +1,98 @@
-<div class="mt-4">
-    <h2>Thông tin phòng</h2>
-    <form method="get" id="update" action='/rooms/{{this.id_phong}}/edit'>
-        <button type="submit" class="btn btn-primary" id='edit'>Cập nhật Phòng</button>
-    </form>
-    <form method="post" action="/rooms/{{this.id_phong}}?_method=put" id="form">
-        <div class="mb-3 row">
-            <label for="id_phong" class="col-sm-2 col-form-label">ID Phòng</label>
-            <div class="col-sm-10">
-            <input type="text" readonly class="form-control-plaintext" id="id_phong" name="id_phong" value={{this.id_phong}}>
+<div class="view">
+    <div class="static"></div>
+    <div class="mt-4 show">
+        <h2>Thông tin phòng</h2>
+        <form method="get" id="update" action='/rooms/{{this.id_phong}}/edit'>
+            <button type="submit" class="btn btn-primary" id='edit'>Cập nhật Phòng</button>
+        </form>
+        <form method="post" action="/rooms/{{this.id_phong}}?_method=put" id="form">
+            <div class="mb-3 row">
+                <label for="id_phong" class="col-sm-2 col-form-label">ID Phòng</label>
+                <div class="col-sm-10">
+                <input type="text" readonly class="form-control-plaintext" id="id_phong" name="id_phong" value={{this.id_phong}}>
+                </div>
             </div>
-        </div>
 
-        <div class="mb-3 row">
-            <label for="ten_phong" class="col-sm-2 col-form-label">Tên Phòng</label>
-            <div class="col-sm-10">
-            <input type="text" readonly class="form-control-plaintext" id="ten_phong" name="ten_phong" value="{{this.ten_phong}}">
+            <div class="mb-3 row">
+                <label for="ten_phong" class="col-sm-2 col-form-label">Tên Phòng</label>
+                <div class="col-sm-10">
+                <input type="text" readonly class="form-control-plaintext" id="ten_phong" name="ten_phong" value="{{this.ten_phong}}">
+                </div>
             </div>
-        </div>
-        
-        <div class="mb-3 row">
-            <label for="loai_phong" class="col-sm-2 col-form-label">Loại Phòng</label>
-            <div class="col-sm-10">
-            <input type="text" readonly class="form-control-plaintext" id="loai_phong" name="loai_phong" value="{{this.loai_phong}}">
+            
+            <div class="mb-3 row">
+                <label for="loai_phong" class="col-sm-2 col-form-label">Loại Phòng</label>
+                <div class="col-sm-10">
+                <input type="text" readonly class="form-control-plaintext" id="loai_phong" name="loai_phong" value="{{this.loai_phong}}">
+                </div>
             </div>
-        </div>
-        
-        <div class="mb-3 row">
-            <label for="gia_phong" class="col-sm-2 col-form-label">Giá Phòng</label>
-            <div class="col-sm-10">
-            <input type="text" readonly class="form-control-plaintext" id="gia_phong" name="gia_phong" value="{{this.gia_phong}}">
+            
+            <div class="mb-3 row">
+                <label for="gia_phong" class="col-sm-2 col-form-label">Giá Phòng</label>
+                <div class="col-sm-10">
+                <input type="text" readonly class="form-control-plaintext" id="gia_phong" name="gia_phong" value="{{this.gia_phong}}">
+                </div>
             </div>
-        </div>
-        
-        <div class="mb-3 row">
-            <label for="so_nguoi_toi_da" class="col-sm-2 col-form-label">Số người tối đa</label>
-            <div class="col-sm-10">
-            <input type="text" readonly class="form-control-plaintext" id="so_nguoi_toi_da" name="so_nguoi_toi_da" value={{this.so_nguoi_toi_da}}>
+            
+            <div class="mb-3 row">
+                <label for="so_nguoi_toi_da" class="col-sm-2 col-form-label">Số người tối đa</label>
+                <div class="col-sm-10">
+                <input type="text" readonly class="form-control-plaintext" id="so_nguoi_toi_da" name="so_nguoi_toi_da" value={{this.so_nguoi_toi_da}}>
+                </div>
             </div>
-        </div>
-        
-        <div class="mb-3 row">
-            <label for="trang_thai" class="col-sm-2 col-form-label">Trạng thái</label>
-            <div class="col-sm-10">
-            <input type="text" readonly class="form-control-plaintext" id="trang_thai" name="trang_thai" value="{{this.trang_thai}}">
+            
+            <div class="mb-3 row">
+                <label for="trang_thai" class="col-sm-2 col-form-label">Trạng thái</label>
+                <div class="col-sm-10">
+                <input type="text" readonly class="form-control-plaintext" id="trang_thai" name="trang_thai" value="{{this.trang_thai}}">
+                </div>
             </div>
-        </div>
-        
-        <div class="mb-3 row">
-            <label for="so_nguoi_hien_tai" class="col-sm-2 col-form-label">Số người hiện tại</label>
-            <div class="col-sm-10">
-            <input type="number" class="form-control" id="so_nguoi_hien_tai" name="so_nguoi_hien_tai" max="{{this.so_nguoi_toi_da}}" value="{{this.so_nguoi_hien_tai}}" placeholder="Vui lòng nhập số người hiện tại" required>
+            
+            <div class="mb-3 row">
+                <label for="so_nguoi_hien_tai" class="col-sm-2 col-form-label">Số người hiện tại</label>
+                <div class="col-sm-10">
+                <input type="number" class="form-control" id="so_nguoi_hien_tai" name="so_nguoi_hien_tai" max="{{this.so_nguoi_toi_da}}" value="{{this.so_nguoi_hien_tai}}" placeholder="Vui lòng nhập số người hiện tại" required>
+                </div>
             </div>
-        </div>
-        
-        <div class="mb-3 row">
-            <label for="ten_nguoi_dai_dien" class="col-sm-2 col-form-label">Tên người đại diện</label>
-            <div class="col-sm-10">
-            <input type="text" class="form-control" id="ten_nguoi_dai_dien" name="ten_nguoi_dai_dien" value="{{this.ten_nguoi_dai_dien}}" placeholder="Vui lòng nhập tên người đại diện" required>
+            
+            <div class="mb-3 row">
+                <label for="ten_nguoi_dai_dien" class="col-sm-2 col-form-label">Tên người đại diện</label>
+                <div class="col-sm-10">
+                <input type="text" class="form-control" id="ten_nguoi_dai_dien" name="ten_nguoi_dai_dien" value="{{this.ten_nguoi_dai_dien}}" placeholder="Vui lòng nhập tên người đại diện" required>
+                </div>
             </div>
-        </div>
-        
-        <div class="mb-3 row">
-            <label for="id_nguoi_dai_dien" class="col-sm-2 col-form-label">CCCD/CMT người đại diện </label>
-            <div class="col-sm-10">
-            <input type="text" class="form-control" id="id_nguoi_dai_dien" name="id_nguoi_dai_dien" value="{{this.id_nguoi_dai_dien}}" placeholder="Vui lòng nhập CCCD/CMT người đại diện" required>
+            
+            <div class="mb-3 row">
+                <label for="id_nguoi_dai_dien" class="col-sm-2 col-form-label">CCCD/CMT người đại diện </label>
+                <div class="col-sm-10">
+                <input type="text" class="form-control" id="id_nguoi_dai_dien" name="id_nguoi_dai_dien" value="{{this.id_nguoi_dai_dien}}" placeholder="Vui lòng nhập CCCD/CMT người đại diện" required>
+                </div>
             </div>
-        </div>
 
-        <div class="mb-3 row">
-            <label for="phuong_thuc_thue" class="col-sm-2 col-form-label">Phương thức thuê </label>
-            <div class="col-sm-10" >
-                <select class="form-control" id="phuong_thuc_thue" name="phuong_thuc_thue" required>
-                    <option value="hour">Thuê theo giờ</option>
-                    <option value="night">Qua đêm</option>
-                    <option value="day">Thuê theo ngày</option>
-                </select>
-                <script>
-                    var selectElement = document.getElementById("phuong_thuc_thue");
-                    selectElement.value = '{{phuong_thuc_thue}}';
-                </script>
+            <div class="mb-3 row">
+                <label for="phuong_thuc_thue" class="col-sm-2 col-form-label">Phương thức thuê </label>
+                <div class="col-sm-10" >
+                    <select class="form-control" id="phuong_thuc_thue" name="phuong_thuc_thue" required>
+                        <option value="hour">Thuê theo giờ</option>
+                        <option value="night">Qua đêm</option>
+                        <option value="day">Thuê theo ngày</option>
+                    </select>
+                    <script>
+                        var selectElement = document.getElementById("phuong_thuc_thue");
+                        selectElement.value = '{{phuong_thuc_thue}}';
+                    </script>
+                </div>
             </div>
-        </div>
 
-        <div class="mb-3 row">
-            <label for="check_in" class="col-sm-2 col-form-label">Check-in</label>
-            <div class="col-sm-10" >
-            <input type="text" class="form-control" readonly id="check_in" name="check_in" value="{{this.check_in}}"></input>
+            <div class="mb-3 row">
+                <label for="check_in" class="col-sm-2 col-form-label">Check-in</label>
+                <div class="col-sm-10" >
+                <input type="text" class="form-control" readonly id="check_in" name="check_in" value="{{this.check_in}}"></input>
+                </div>
             </div>
-        </div>
 
-        <button type="submit" id="nhan" class="btn btn-primary" name="submit" value="nhan">Nhận Phòng</button>
-
-        <button type="submit" id="huy" class="btn btn-primary" name="submit" value="huy">Trả Phòng</button>
-        
-    </form>
+            <button type="submit" id="nhan" class="btn btn-primary" name="submit" value="nhan">Nhận Phòng</button>
+            <button type="submit" id="huy" class="btn btn-primary" name="submit" value="huy">Trả Phòng</button>
+        </form>
+    </div>
 </div>

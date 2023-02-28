@@ -49,11 +49,10 @@ class RoomController {
                 if(req.body.check_in[8] + req.body.check_in[9] == datetime[8] + datetime[9]){
                     var time = ((datetime[19] + datetime[20]) - (req.body.check_in[19] + req.body.check_in[20]))
                                 + ((datetime[16] + datetime[17]) - (req.body.check_in[16] + req.body.check_in[17]))*60;
-                    console.log(time);
                     if(time <= 120) _cost = "100k";
                     else{
                         var cost = 100 + Math.round((time-120)/60)*20;
-                        req.body.thanh_toan = cost + "k";
+                        _cost = cost + "k";
                     }
                 }
             }

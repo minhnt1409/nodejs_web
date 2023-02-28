@@ -1,28 +1,55 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Name</th>
-      <th scope="col">Age</th>
-      <th scope="col">Sex</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each courses}}
-    <tr>
-      <th scope="row">{{sum @index 1}}</th>
-      <td>{{this.name}}</td>
-      <td>{{this.age}}</td>
-      <td>{{this.sex}}</td>
-      <td>
-        <a href="/courses/{{this._id}}/edit" class="btn btn-link">Sua</a>
-        <a href="" class="btn btn-link" data-toggle="modal" data-id={{this._id}} data-target="#delete-modal">Xoa</a>
-      </td>
-    </tr>
-    {{/each}}
-  </tbody>
-</table>
+<div class="mt-4 view">
+  <div class="static">
+    <div class="mb-3 row">
+      <label for="sum" class="col-sm-5 col-form-label">Tổng doanh thu:</label>
+      <div class="col-sm-5">
+        <input type="text" readonly class="form-control" id="sum" name="sum" value=0>
+      </div>
+    </div>
+  </div>
 
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Tên phòng</th>
+        <th scope="col">Tên người</th>
+        <th scope="col">CMT/CCCD</th>
+        <th scope="col">Thanh toán</th>
+        <th scope="col">Check-in</th>
+        <th scope="col">Check-out</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each histories}}
+      <tr>
+        <th scope="row">{{sum @index 1}}</th>
+        <td>{{this.ten_phong}}</td>
+        <td>{{this.ten_nguoi_dai_dien}}</td>
+        <td>{{this.id_nguoi_dai_dien}}</td>
+        <td id="thanh_toan_{{this.check_in}}" value="{{this.thanh_toan}}">{{this.thanh_toan}}</td>
+        <td>{{this.check_in}}</td>
+        <td>{{this.check_out}}</td>
+        {{!-- <td>
+          <a href="/courses/{{this._id}}/edit" class="btn btn-link">Sua</a>
+          <a href="" class="btn btn-link" data-toggle="modal" data-id={{this._id}} data-target="#delete-modal">Xoa</a>
+        </td> --}}
+      </tr>
+      <script>
+        var _money = document.getElementById("thanh_toan_{{this.check_in}}").getAttribute("value");
+        var money = parseInt(_money.replace('k', ''));
+        if(money > 0) {
+          document.getElementById("sum").setAttribute("value", parseInt(document.getElementById("sum").getAttribute("value").replace('k','')) + money);
+          document.getElementById("sum").setAttribute("value", document.getElementById("sum").getAttribute("value") + 'k');
+          console.log(document.getElementById("sum").getAttribute("value"));
+        }
+      </script>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
+{{!-- 
 <div id="delete-modal" class="modal" tabindex="-1" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -63,4 +90,4 @@
     }
   });
 
-</script>
+</script> --}}
