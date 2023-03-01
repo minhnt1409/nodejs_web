@@ -90,9 +90,135 @@
                 <input type="text" class="form-control" readonly id="check_in" name="check_in" value="{{this.check_in}}"></input>
                 </div>
             </div>
-
             <button type="submit" id="nhan" class="btn btn-primary" name="submit" value="nhan">Nhận Phòng</button>
-            <button type="submit" id="huy" class="btn btn-primary" name="submit" value="huy">Trả Phòng</button>
+            <button type="button"  id="pay" name="pay" value="" class="btn btn-primary" data-toggle="modal" data-target="#xac_nhan_thanh_toan">Trả Phòng</button>
+            {{!-- <button type="submit" id="huy" class="btn btn-primary" name="submit" value="huy" >Trả Phòng</button> --}}
         </form>
     </div>
 </div>
+        {{!-- <td>
+          <a href="/courses/{{this._id}}/edit" class="btn btn-link">Sua</a>
+          <a href="" class="btn btn-link" data-toggle="modal" data-id={{this._id}} data-target="#xac_nhan_thanh_toan">Xoa</a>
+        </td> --}}
+<div id="xac_nhan_thanh_toan" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Thanh toán</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body mb-3 row">
+                <label for="pay" class="col-sm-5 col-form-label">Tổng thu: </label>
+                <div class="col-sm-7" >
+                <input type="text" class="form-control" readonly id="cost"></input>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btn-xac_nhan_thanh_toan" type="button" class="btn btn-danger" name="submit" value="huy" >Đã nhận</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        var Form = document.getElementById('form');
+        var btnPay = document.getElementById('btn-xac_nhan_thanh_toan');
+        var _cost;
+        $('#xac_nhan_thanh_toan').on('shown.bs.modal', function (event) {
+            console.log(event);
+            const button = $(event.relatedTarget);
+            
+            var now = new Date();
+            var datetime = now.toString().replace(' GMT+0700 (Indochina Time)', '');
+            var _phuong_thuc_thue = document.getElementById('phuong_thuc_thue').value;
+            var _check_in = document.getElementById('check_in').value;
+            console.log(_phuong_thuc_thue);
+            console.log(_check_in);
+
+            if(_phuong_thuc_thue == "hour") {
+                if(_check_in[8] + _check_in[9] == datetime[8] + datetime[9]){
+                    var time = ((datetime[19] + datetime[20]) - (_check_in[19] + _check_in[20]))
+                                + ((datetime[16] + datetime[17]) - (_check_in[16] + _check_in[17]))*60;
+                    if(time <= 120) _cost = "100k";
+                    else{
+                        var cost = 100 + Math.round((time-120)/60)*20;
+                        _cost = cost + "k";
+                    }
+                }else{
+                    var time = (parseInt(datetime[19] + datetime[20]) - parseInt(_check_in[19] + _check_in[20]))
+                                + ((parseInt(datetime[16] + datetime[17])+24) - parseInt(_check_in[16] + _check_in[17]))*60;
+                    if(time <= 120) _cost = "100k";
+                    else{
+                        var cost = 100 + Math.round((time-120)/60)*20;
+                        _cost = cost + "k";
+                    }
+                }
+            }else if(_phuong_thuc_thue == "night") {
+                var time = parseInt(datetime[19]+datetime[20]) + ((datetime[16] + datetime[17]) - 9)*60;
+                if(time > 0) cost = 200 + Math.round(time/60)*20;
+                else cost = 200;
+                _cost = cost + "k"; 
+            }else if(_phuong_thuc_thue == "day") {
+                if(_check_in[4] + _check_in[5] + _check_in[6] == datetime[4] + datetime[5] + datetime[6]){
+                    var cost = 400*(parseInt(datetime[8] + datetime[9]) - parseInt(_check_in[8] + _check_in[9])
+                                    + Math.ceil((parseInt(datetime[16] + datetime[17])-8)/24) );
+                    _cost = cost + "k";
+                }else{
+                    var month;
+                    switch (datetime[4] + datetime[5] + datetime[6]) {
+                        case 'Jan':
+                          month = 1;
+                          break;
+                        case 'Feb':
+                          month = 2
+                          break;
+                        case 'Mar':
+                           month =3;
+                          break;
+                        case 'Apr':
+                          month = 4;
+                          break;
+                        case 'May':
+                          month = 5;
+                          break;
+                        case 'Jun':
+                          month = 6;
+                          break;
+                        case 'Jul':
+                          month = 7;
+                          break;
+                        case 'Aug':
+                          month = 8;
+                          break;
+                        case 'Sep':
+                          month = 9;
+                          break;
+                        case 'Oct':
+                          month = 10;
+                          break;
+                        case 'Nov':
+                          month = 11;
+                          break;
+                        case 'Dec':
+                          month = 12;
+                          break;
+                    }
+                    var year_in = _check_in[11] + _check_in[12] + _check_in[13] + _check_in[14];
+                    var cost = 400*(parseInt(datetime[8] + datetime[9]) + (new Date(year_in,month,0)).getDate()
+                                    - parseInt(_check_in[8] + _check_in[9])
+                                    + Math.ceil((parseInt(datetime[16] + datetime[17])-8)/24) );
+                    _cost = cost + "k";
+                }
+            }
+            document.getElementById("cost").setAttribute("value", _cost);
+            document.getElementById("pay").value = _cost;
+        })
+        btnPay.onclick = function () {
+            console.log(Form.submit)
+            document.getElementById("pay").setAttribute("type", "submit");
+            document.getElementById("pay").click();
+        }
+    });
+</script>

@@ -7,7 +7,6 @@
       </div>
     </div>
   </div>
-
   <table class="table">
     <thead>
       <tr>
@@ -30,10 +29,6 @@
         <td id="thanh_toan_{{this.check_in}}" value="{{this.thanh_toan}}">{{this.thanh_toan}}</td>
         <td>{{this.check_in}}</td>
         <td>{{this.check_out}}</td>
-        {{!-- <td>
-          <a href="/courses/{{this._id}}/edit" class="btn btn-link">Sua</a>
-          <a href="" class="btn btn-link" data-toggle="modal" data-id={{this._id}} data-target="#delete-modal">Xoa</a>
-        </td> --}}
       </tr>
       <script>
         var _money = document.getElementById("thanh_toan_{{this.check_in}}").getAttribute("value");
@@ -48,4 +43,3 @@
     </tbody>
   </table>
 </div>
-

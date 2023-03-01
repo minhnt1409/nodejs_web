@@ -7,7 +7,7 @@ const History = new Schema({
     ten_phong: { type: String, required: true},
     ten_nguoi_dai_dien: { type: String },
     id_nguoi_dai_dien: { type: Number },
-    phuong_thuc_thue: { type: String},
+    phuong_thuc_thue: { type: String, default: null},
     thanh_toan: { type: String, default: null },
     check_in: {type: String},
     check_out: {type: String, default: null },
