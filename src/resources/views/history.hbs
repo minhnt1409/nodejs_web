@@ -3,7 +3,7 @@
     <div class="mb-3 row">
       <label for="sum" class="col-sm-5 col-form-label">Tổng doanh thu:</label>
       <div class="col-sm-5">
-        <input type="text" readonly class="form-control" id="sum" name="sum" value=0>
+        <input type="text" readonly class="form-control" style="text-align: center;" id="sum" name="sum" value=0>
       </div>
     </div>
   </div>
@@ -49,45 +49,3 @@
   </table>
 </div>
 
-{{!-- 
-<div id="delete-modal" class="modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Delete</h5>
-        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Are you sure?</p>
-      </div>
-      <div class="modal-footer">
-        <button id="btn-delete-modal" type="button" class="btn btn-danger">Delete</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<form id="btn-delete-form" method="post"></form>
-
-<script>
-  document.addEventListener('DOMContentLoaded', (event) => {
-    var id;
-    var deleteForm = document.getElementById('btn-delete-form');
-    var btnDelete = document.getElementById('btn-delete-modal');
-
-    $('#delete-modal').on('shown.bs.modal', function (event) {
-      console.log(event);
-      const button = $(event.relatedTarget);
-      id = button.data('id');
-      console.log(button);
-      console.log(id);
-    })
-
-    btnDelete.onclick = function () {
-      deleteForm.action = '/courses/' + id + '?_method=delete';
-      deleteForm.submit();
-    }
-  });
-
-</script> --}}

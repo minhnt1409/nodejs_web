@@ -11,12 +11,6 @@ class HistoryController {
             .catch(next);
     }
 
-    delete(req, res, next) {
-        console.log(req.params.slug);
-        Room.findOneAndDelete({id_phong: req.params.id})
-            .then(res.redirect('/history'))
-            .catch(next);
-    }
 }
 
 export { HistoryController };

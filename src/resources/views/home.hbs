@@ -4,28 +4,28 @@
         <div class="mb-3 row">
             <label for="sum" class="col-sm-5 col-form-label">Tổng số phòng</label>
             <div class="col-sm-5">
-                <input type="Number" readonly class="form-control-plaintext" style="text-align: center;" id="sum" name="sum" value=0>
+                <input type="Number" readonly class="form-control" style="text-align: center;" id="sum" name="sum" value=0>
             </div>
         </div>
 
         <div class="mb-3 row">
             <label for="sum_ready" class="col-sm-5 col-form-label" style="background-color: green;">Số phòng trống</label>
             <div class="col-sm-5">
-                <input type="Number" readonly class="form-control-plaintext" style="text-align: center;" id="sum_ready" name="sum_ready" value=0>
+                <input type="Number" readonly class="form-control" style="text-align: center;" id="sum_ready" name="sum_ready" value=0>
             </div>
         </div>
         
         <div class="mb-3 row">
-            <label for="sum_hired" class="col-sm-5 col-form-label" style="background-color: yellow;">Số phòng đã thuê</label>
+            <label for="sum_hired" class="col-sm-5 col-form-label" style="background-color: #3382ad;">Số phòng đã thuê</label>
             <div class="col-sm-5">
-                <input type="Number" readonly class="form-control-plaintext" style="text-align: center;" id="sum_hired" name="sum_hired" value=0>
+                <input type="Number" readonly class="form-control" style="text-align: center;" id="sum_hired" name="sum_hired" value=0>
             </div>
         </div>
         
         <div class="mb-3 row">
             <label for="sum_fixing" class="col-sm-5 col-form-label" style="background-color: red;">Số phòng đang sửa</label>
             <div class="col-sm-5">
-                <input type="Number" readonly class="form-control-plaintext" style="text-align: center;" id="sum_fixing" name="sum_fixing" value=0>
+                <input type="Number" readonly class="form-control" style="text-align: center;" id="sum_fixing" name="sum_fixing" value=0>
             </div>
         </div>
         
@@ -52,17 +52,20 @@
                 document.getElementById("sum").setAttribute("value", parseInt(document.getElementById("sum").getAttribute("value")) + 1);
                 console.log(document.getElementById("sum").getAttribute("value"));
                 if (trangthai == 'ready') {
-                    card.style.backgroundColor = "green";
+                    card.style.backgroundColor = "#e9f7ea";
+                    card.style.color = "green";
                     document.getElementById("sum_ready").setAttribute("value", parseInt(document.getElementById("sum_ready").getAttribute("value")) + 1);
                     console.log(document.getElementById("sum").getAttribute("value"));
                 }
                 if (trangthai == 'hired') {
-                    card.style.backgroundColor = "yellow";
+                    card.style.backgroundColor = "#bbdefc";
+                    card.style.color = "#3382ad";
                     document.getElementById("sum_hired").setAttribute("value", parseInt(document.getElementById("sum_hired").getAttribute("value")) + 1);
                     console.log(document.getElementById("sum").getAttribute("value"));
                 }
                 if(trangthai == 'fixing') {
-                    card.style.backgroundColor = "red";
+                    card.style.backgroundColor = "#ffebec";
+                    card.style.color = "red";
                     document.getElementById("sum_fixing").setAttribute("value", parseInt(document.getElementById("sum_fixing").getAttribute("value")) + 1);
                     console.log(document.getElementById("sum").getAttribute("value"));
                 }
