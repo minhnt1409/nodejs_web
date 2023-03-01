@@ -24,7 +24,7 @@
         <input type="text" class="form-control" id="search_id_nguoi" name="search_id_nguoi">
       </div>
     </div>
-    
+
   </div>
 
   <table class="table" style="width: 62%;">
@@ -64,7 +64,7 @@
   </table>
 </div>
 <script>
-  function search(search_input){
+  function search(search_input) {
     search_input.addEventListener("input", function () {
       var searchString = search_input.value.toLowerCase();
       for (var i = 1; i < rows.length; i++) {
@@ -93,5 +93,5 @@
   search(searchTenNguoi);
   var searchIdNguoi = document.getElementById("search_id_nguoi");
   search(searchIdNguoi);
-  
+
 </script>

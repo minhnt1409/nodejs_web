@@ -1,10 +1,10 @@
 @import 'variables';
 
-h1{
+h1 {
     color: $red;
 }
 
-.container{
+.container {
     display: flex;
 }
 
@@ -13,10 +13,10 @@ h1{
     height: 100%;
 }
 
-.view .static{
-    width:25%;
+.view .static {
+    width: 25%;
 }
-  
+
 .view .show {
     width: 60%;
 }

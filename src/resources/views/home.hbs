@@ -4,44 +4,52 @@
         <div class="mb-3 row">
             <label for="sum" class="col-sm-5 col-form-label">Tổng số phòng</label>
             <div class="col-sm-5">
-                <input type="Number" readonly class="form-control" style="text-align: center;" id="sum" name="sum" value=0>
+                <input type="Number" readonly class="form-control" style="text-align: center;" id="sum" name="sum"
+                    value=0>
             </div>
         </div>
 
         <div class="mb-3 row">
-            <label for="sum_ready" class="col-sm-5 col-form-label" style="background-color: green;">Số phòng trống</label>
+            <label for="sum_ready" class="col-sm-5 col-form-label" style="background-color: green;">Số phòng
+                trống</label>
             <div class="col-sm-5">
-                <input type="Number" readonly class="form-control" style="text-align: center;" id="sum_ready" name="sum_ready" value=0>
+                <input type="Number" readonly class="form-control" style="text-align: center;" id="sum_ready"
+                    name="sum_ready" value=0>
             </div>
         </div>
-        
+
         <div class="mb-3 row">
-            <label for="sum_hired" class="col-sm-5 col-form-label" style="background-color: #3382ad;">Số phòng đã thuê</label>
+            <label for="sum_hired" class="col-sm-5 col-form-label" style="background-color: #3382ad;">Số phòng đã
+                thuê</label>
             <div class="col-sm-5">
-                <input type="Number" readonly class="form-control" style="text-align: center;" id="sum_hired" name="sum_hired" value=0>
+                <input type="Number" readonly class="form-control" style="text-align: center;" id="sum_hired"
+                    name="sum_hired" value=0>
             </div>
         </div>
-        
+
         <div class="mb-3 row">
-            <label for="sum_fixing" class="col-sm-5 col-form-label" style="background-color: red;">Số phòng đang sửa</label>
+            <label for="sum_fixing" class="col-sm-5 col-form-label" style="background-color: red;">Số phòng đang
+                sửa</label>
             <div class="col-sm-5">
-                <input type="Number" readonly class="form-control" style="text-align: center;" id="sum_fixing" name="sum_fixing" value=0>
+                <input type="Number" readonly class="form-control" style="text-align: center;" id="sum_fixing"
+                    name="sum_fixing" value=0>
             </div>
         </div>
-        
+
     </div>
-    <div class="mt-4 show"> 
+    <div class="mt-4 show">
         <div class="row">
             {{#each rooms}}
             <div class="col-sm-10 col-lg-3">
                 <div class="card">
                     <div class="card-body" id="card_{{this.id_phong}}">
                         <a href="/rooms/{{this.id_phong}}">
-                            <h4 class="card-title" style="color: black;">{{this.ten_phong}}</h4>               
+                            <h4 class="card-title" style="color: black;">{{this.ten_phong}}</h4>
                         </a>
                         <p class="card-text">{{this.loai_phong}}</p>
                         <p class="card-text">{{this.gia_phong}}</p>
-                        <p class="card-text" id="trang_thai-{{this.trang_thai}}" value={{this.trang_thai}}>{{this.trang_thai}}</p>
+                        <p class="card-text" id="trang_thai-{{this.trang_thai}}" value={{this.trang_thai}}>
+                            {{this.trang_thai}}</p>
                     </div>
                 </div>
             </div>
@@ -63,13 +71,13 @@
                     document.getElementById("sum_hired").setAttribute("value", parseInt(document.getElementById("sum_hired").getAttribute("value")) + 1);
                     console.log(document.getElementById("sum").getAttribute("value"));
                 }
-                if(trangthai == 'fixing') {
+                if (trangthai == 'fixing') {
                     card.style.backgroundColor = "#ffebec";
                     card.style.color = "red";
                     document.getElementById("sum_fixing").setAttribute("value", parseInt(document.getElementById("sum_fixing").getAttribute("value")) + 1);
                     console.log(document.getElementById("sum").getAttribute("value"));
                 }
-                
+
             </script>
             {{/each }}
         </div>

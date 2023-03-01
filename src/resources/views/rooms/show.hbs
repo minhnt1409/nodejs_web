@@ -9,69 +9,79 @@
             <div class="mb-3 row">
                 <label for="id_phong" class="col-sm-2 col-form-label">ID Phòng</label>
                 <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="id_phong" name="id_phong" value={{this.id_phong}}>
+                    <input type="text" readonly class="form-control-plaintext" id="id_phong" name="id_phong"
+                        value={{this.id_phong}}>
                 </div>
             </div>
 
             <div class="mb-3 row">
                 <label for="ten_phong" class="col-sm-2 col-form-label">Tên Phòng</label>
                 <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="ten_phong" name="ten_phong" value="{{this.ten_phong}}">
+                    <input type="text" readonly class="form-control-plaintext" id="ten_phong" name="ten_phong"
+                        value="{{this.ten_phong}}">
                 </div>
             </div>
-            
+
             <div class="mb-3 row">
                 <label for="loai_phong" class="col-sm-2 col-form-label">Loại Phòng</label>
                 <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="loai_phong" name="loai_phong" value="{{this.loai_phong}}">
+                    <input type="text" readonly class="form-control-plaintext" id="loai_phong" name="loai_phong"
+                        value="{{this.loai_phong}}">
                 </div>
             </div>
-            
+
             <div class="mb-3 row">
                 <label for="gia_phong" class="col-sm-2 col-form-label">Giá Phòng</label>
                 <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="gia_phong" name="gia_phong" value="{{this.gia_phong}}">
+                    <input type="text" readonly class="form-control-plaintext" id="gia_phong" name="gia_phong"
+                        value="{{this.gia_phong}}">
                 </div>
             </div>
-            
+
             <div class="mb-3 row">
                 <label for="so_nguoi_toi_da" class="col-sm-2 col-form-label">Số người tối đa</label>
                 <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="so_nguoi_toi_da" name="so_nguoi_toi_da" value={{this.so_nguoi_toi_da}}>
+                    <input type="text" readonly class="form-control-plaintext" id="so_nguoi_toi_da"
+                        name="so_nguoi_toi_da" value={{this.so_nguoi_toi_da}}>
                 </div>
             </div>
-            
+
             <div class="mb-3 row">
                 <label for="trang_thai" class="col-sm-2 col-form-label">Trạng thái</label>
                 <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="trang_thai" name="trang_thai" value="{{this.trang_thai}}">
+                    <input type="text" readonly class="form-control-plaintext" id="trang_thai" name="trang_thai"
+                        value="{{this.trang_thai}}">
                 </div>
             </div>
-            
+
             <div class="mb-3 row">
                 <label for="so_nguoi_hien_tai" class="col-sm-2 col-form-label">Số người hiện tại</label>
                 <div class="col-sm-10">
-                <input type="number" class="form-control" id="so_nguoi_hien_tai" name="so_nguoi_hien_tai" max="{{this.so_nguoi_toi_da}}" value="{{this.so_nguoi_hien_tai}}" placeholder="Vui lòng nhập số người hiện tại" required>
+                    <input type="number" class="form-control" id="so_nguoi_hien_tai" name="so_nguoi_hien_tai"
+                        max="{{this.so_nguoi_toi_da}}" value="{{this.so_nguoi_hien_tai}}"
+                        placeholder="Vui lòng nhập số người hiện tại" required>
                 </div>
             </div>
-            
+
             <div class="mb-3 row">
                 <label for="ten_nguoi_dai_dien" class="col-sm-2 col-form-label">Tên người đại diện</label>
                 <div class="col-sm-10">
-                <input type="text" class="form-control" id="ten_nguoi_dai_dien" name="ten_nguoi_dai_dien" value="{{this.ten_nguoi_dai_dien}}" placeholder="Vui lòng nhập tên người đại diện" required>
+                    <input type="text" class="form-control" id="ten_nguoi_dai_dien" name="ten_nguoi_dai_dien"
+                        value="{{this.ten_nguoi_dai_dien}}" placeholder="Vui lòng nhập tên người đại diện" required>
                 </div>
             </div>
-            
+
             <div class="mb-3 row">
                 <label for="id_nguoi_dai_dien" class="col-sm-2 col-form-label">CCCD/CMT người đại diện </label>
                 <div class="col-sm-10">
-                <input type="text" class="form-control" id="id_nguoi_dai_dien" name="id_nguoi_dai_dien" value="{{this.id_nguoi_dai_dien}}" placeholder="Vui lòng nhập CCCD/CMT người đại diện" required>
+                    <input type="text" class="form-control" id="id_nguoi_dai_dien" name="id_nguoi_dai_dien"
+                        value="{{this.id_nguoi_dai_dien}}" placeholder="Vui lòng nhập CCCD/CMT người đại diện" required>
                 </div>
             </div>
 
             <div class="mb-3 row">
                 <label for="phuong_thuc_thue" class="col-sm-2 col-form-label">Phương thức thuê </label>
-                <div class="col-sm-10" >
+                <div class="col-sm-10">
                     <select class="form-control" id="phuong_thuc_thue" name="phuong_thuc_thue" required>
                         <option value="hour">Thuê theo giờ</option>
                         <option value="night">Qua đêm</option>
@@ -86,20 +96,17 @@
 
             <div class="mb-3 row">
                 <label for="check_in" class="col-sm-2 col-form-label">Check-in</label>
-                <div class="col-sm-10" >
-                <input type="text" class="form-control" readonly id="check_in" name="check_in" value="{{this.check_in}}"></input>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" readonly id="check_in" name="check_in"
+                        value="{{this.check_in}}"></input>
                 </div>
             </div>
             <button type="submit" id="nhan" class="btn btn-primary" name="submit" value="nhan">Nhận Phòng</button>
-            <button type="button"  id="pay" name="pay" value="" class="btn btn-primary" data-toggle="modal" data-target="#xac_nhan_thanh_toan">Trả Phòng</button>
-            {{!-- <button type="submit" id="huy" class="btn btn-primary" name="submit" value="huy" >Trả Phòng</button> --}}
+            <button type="button" id="pay" name="pay" value="" class="btn btn-primary" data-toggle="modal"
+                data-target="#xac_nhan_thanh_toan">Trả Phòng</button>
         </form>
     </div>
 </div>
-        {{!-- <td>
-          <a href="/courses/{{this._id}}/edit" class="btn btn-link">Sua</a>
-          <a href="" class="btn btn-link" data-toggle="modal" data-id={{this._id}} data-target="#xac_nhan_thanh_toan">Xoa</a>
-        </td> --}}
 <div id="xac_nhan_thanh_toan" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -109,12 +116,13 @@
             </div>
             <div class="modal-body mb-3 row">
                 <label for="pay" class="col-sm-5 col-form-label">Tổng thu: </label>
-                <div class="col-sm-7" >
-                <input type="text" class="form-control" readonly id="cost"></input>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" readonly id="cost"></input>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="btn-xac_nhan_thanh_toan" type="button" class="btn btn-danger" name="submit" value="huy" >Đã nhận</button>
+                <button id="btn-xac_nhan_thanh_toan" type="button" class="btn btn-danger" name="submit" value="huy">Đã
+                    nhận</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
             </div>
         </div>
@@ -126,103 +134,103 @@
         var Form = document.getElementById('form');
         var btnPay = document.getElementById('btn-xac_nhan_thanh_toan');
         var _cost;
+        var cost;
         $('#xac_nhan_thanh_toan').on('shown.bs.modal', function (event) {
             console.log(event);
             const button = $(event.relatedTarget);
-            
+
             var now = new Date();
             var datetime = now.toString().replace(' GMT+0700 (Indochina Time)', '');
             var _phuong_thuc_thue = document.getElementById('phuong_thuc_thue').value;
             var _check_in = document.getElementById('check_in').value;
             var _loai_phong = document.getElementById('loai_phong').value;
-            var cost;
-            if(_phuong_thuc_thue == "hour") {
+            if (_phuong_thuc_thue == "hour") {
                 var time;
-                if(_check_in[8] + _check_in[9] == datetime[8] + datetime[9]){
+                if (_check_in[8] + _check_in[9] == datetime[8] + datetime[9]) {
                     time = ((datetime[19] + datetime[20]) - (_check_in[19] + _check_in[20]))
-                            + ((datetime[16] + datetime[17]) - (_check_in[16] + _check_in[17]))*60;
-                }else{
+                        + ((datetime[16] + datetime[17]) - (_check_in[16] + _check_in[17])) * 60;
+                } else {
                     time = (parseInt(datetime[19] + datetime[20]) - parseInt(_check_in[19] + _check_in[20]))
-                            + ((parseInt(datetime[16] + datetime[17])+24) - parseInt(_check_in[16] + _check_in[17]))*60;
+                        + ((parseInt(datetime[16] + datetime[17]) + 24) - parseInt(_check_in[16] + _check_in[17])) * 60;
                 }
-                if(_loai_phong == "normal"){
-                    if(time <= 120) _cost = "100k";
-                    else{
-                        cost = 100 + Math.round((time-120)/60)*20;
+                if (_loai_phong == "normal") {
+                    if (time <= 120) cost = 100;
+                    else {
+                        cost = 100 + Math.round((time - 120) / 60) * 20;
                     }
-                }else{
-                    if(time <= 120) _cost = "150k";
-                    else{
-                        cost = 150 + Math.round((time-120)/60)*30;
+                } else {
+                    if (time <= 120) cost = 150;
+                    else {
+                        cost = 150 + Math.round((time - 120) / 60) * 30;
                     }
                 }
-            }else if(_phuong_thuc_thue == "night") {
-                var time = parseInt(datetime[19]+datetime[20]) + ((datetime[16] + datetime[17]) - 9)*60;
-                if(_loai_phong == "normal"){
-                    if(time > 0) cost = 200 + Math.round(time/60)*20;
+            } else if (_phuong_thuc_thue == "night") {
+                var time = parseInt(datetime[19] + datetime[20]) + ((datetime[16] + datetime[17]) - 9) * 60;
+                if (_loai_phong == "normal") {
+                    if (time > 0) cost = 200 + Math.round(time / 60) * 20;
                     else cost = 200;
-                }else{
-                    if(time > 0) cost = 300 + Math.round(time/60)*30;
+                } else {
+                    if (time > 0) cost = 300 + Math.round(time / 60) * 30;
                     else cost = 300;
                 }
-            }else if(_phuong_thuc_thue == "day") {
-                if(_check_in[4] + _check_in[5] + _check_in[6] == datetime[4] + datetime[5] + datetime[6]){
-                    if(_loai_phong == "normal"){
-                        cost = 400*(parseInt(datetime[8] + datetime[9]) - parseInt(_check_in[8] + _check_in[9])
-                                + Math.ceil((parseInt(datetime[16] + datetime[17])-8)/24) );
-                    }else{
-                        cost = 600*(parseInt(datetime[8] + datetime[9]) - parseInt(_check_in[8] + _check_in[9])
-                                + Math.ceil((parseInt(datetime[16] + datetime[17])-8)/24) );
+            } else if (_phuong_thuc_thue == "day") {
+                if (_check_in[4] + _check_in[5] + _check_in[6] == datetime[4] + datetime[5] + datetime[6]) {
+                    if (_loai_phong == "normal") {
+                        cost = 400 * (parseInt(datetime[8] + datetime[9]) - parseInt(_check_in[8] + _check_in[9])
+                            + Math.ceil((parseInt(datetime[16] + datetime[17]) - 8) / 24));
+                    } else {
+                        cost = 600 * (parseInt(datetime[8] + datetime[9]) - parseInt(_check_in[8] + _check_in[9])
+                            + Math.ceil((parseInt(datetime[16] + datetime[17]) - 8) / 24));
                     }
-                }else{
+                } else {
                     var month;
                     switch (datetime[4] + datetime[5] + datetime[6]) {
                         case 'Jan':
-                          month = 1;
-                          break;
+                            month = 1;
+                            break;
                         case 'Feb':
-                          month = 2
-                          break;
+                            month = 2
+                            break;
                         case 'Mar':
-                           month =3;
-                          break;
+                            month = 3;
+                            break;
                         case 'Apr':
-                          month = 4;
-                          break;
+                            month = 4;
+                            break;
                         case 'May':
-                          month = 5;
-                          break;
+                            month = 5;
+                            break;
                         case 'Jun':
-                          month = 6;
-                          break;
+                            month = 6;
+                            break;
                         case 'Jul':
-                          month = 7;
-                          break;
+                            month = 7;
+                            break;
                         case 'Aug':
-                          month = 8;
-                          break;
+                            month = 8;
+                            break;
                         case 'Sep':
-                          month = 9;
-                          break;
+                            month = 9;
+                            break;
                         case 'Oct':
-                          month = 10;
-                          break;
+                            month = 10;
+                            break;
                         case 'Nov':
-                          month = 11;
-                          break;
+                            month = 11;
+                            break;
                         case 'Dec':
-                          month = 12;
-                          break;
+                            month = 12;
+                            break;
                     }
                     var year_in = _check_in[11] + _check_in[12] + _check_in[13] + _check_in[14];
-                    if(_loai_phong == "normal"){
-                        cost = 400*(parseInt(datetime[8] + datetime[9]) + (new Date(year_in,month,0)).getDate()
-                                - parseInt(_check_in[8] + _check_in[9])
-                                + Math.ceil((parseInt(datetime[16] + datetime[17])-8)/24) );
-                    }else{
-                        cost = 600*(parseInt(datetime[8] + datetime[9]) + (new Date(year_in,month,0)).getDate()
-                                - parseInt(_check_in[8] + _check_in[9])
-                                + Math.ceil((parseInt(datetime[16] + datetime[17])-8)/24) );
+                    if (_loai_phong == "normal") {
+                        cost = 400 * (parseInt(datetime[8] + datetime[9]) + (new Date(year_in, month, 0)).getDate()
+                            - parseInt(_check_in[8] + _check_in[9])
+                            + Math.ceil((parseInt(datetime[16] + datetime[17]) - 8) / 24));
+                    } else {
+                        cost = 600 * (parseInt(datetime[8] + datetime[9]) + (new Date(year_in, month, 0)).getDate()
+                            - parseInt(_check_in[8] + _check_in[9])
+                            + Math.ceil((parseInt(datetime[16] + datetime[17]) - 8) / 24));
                     }
                 }
             }
