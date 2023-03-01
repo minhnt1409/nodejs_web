@@ -45,8 +45,9 @@ class RoomController {
             req.body.so_nguoi_hien_tai = null;
             req.body.ten_nguoi_dai_dien = null;
             req.body.id_nguoi_dai_dien = null;
-            History.findOneAndUpdate({check_in: req.body.check_in}, {check_out: datetime, phuong_thuc_thue: null ,thanh_toan: req.body.pay}).then(console.log("update history"));
+            History.findOneAndUpdate({check_in: req.body.check_in}, {check_out: datetime, phuong_thuc_thue: req.body.phuong_thuc_thue ,thanh_toan: req.body.pay}).then(console.log("update history"));
             req.body.check_in = null;
+            req.body.phuong_thuc_thue = null;
         }
         
         Room.findOneAndUpdate({id_phong: req.body.id_phong}, req.body)

@@ -134,37 +134,46 @@
             var datetime = now.toString().replace(' GMT+0700 (Indochina Time)', '');
             var _phuong_thuc_thue = document.getElementById('phuong_thuc_thue').value;
             var _check_in = document.getElementById('check_in').value;
-            console.log(_phuong_thuc_thue);
-            console.log(_check_in);
-
+            var _loai_phong = document.getElementById('loai_phong').value;
+            var cost;
             if(_phuong_thuc_thue == "hour") {
+                var time;
                 if(_check_in[8] + _check_in[9] == datetime[8] + datetime[9]){
-                    var time = ((datetime[19] + datetime[20]) - (_check_in[19] + _check_in[20]))
-                                + ((datetime[16] + datetime[17]) - (_check_in[16] + _check_in[17]))*60;
+                    time = ((datetime[19] + datetime[20]) - (_check_in[19] + _check_in[20]))
+                            + ((datetime[16] + datetime[17]) - (_check_in[16] + _check_in[17]))*60;
+                }else{
+                    time = (parseInt(datetime[19] + datetime[20]) - parseInt(_check_in[19] + _check_in[20]))
+                            + ((parseInt(datetime[16] + datetime[17])+24) - parseInt(_check_in[16] + _check_in[17]))*60;
+                }
+                if(_loai_phong == "normal"){
                     if(time <= 120) _cost = "100k";
                     else{
-                        var cost = 100 + Math.round((time-120)/60)*20;
-                        _cost = cost + "k";
+                        cost = 100 + Math.round((time-120)/60)*20;
                     }
                 }else{
-                    var time = (parseInt(datetime[19] + datetime[20]) - parseInt(_check_in[19] + _check_in[20]))
-                                + ((parseInt(datetime[16] + datetime[17])+24) - parseInt(_check_in[16] + _check_in[17]))*60;
-                    if(time <= 120) _cost = "100k";
+                    if(time <= 120) _cost = "150k";
                     else{
-                        var cost = 100 + Math.round((time-120)/60)*20;
-                        _cost = cost + "k";
+                        cost = 150 + Math.round((time-120)/60)*30;
                     }
                 }
             }else if(_phuong_thuc_thue == "night") {
                 var time = parseInt(datetime[19]+datetime[20]) + ((datetime[16] + datetime[17]) - 9)*60;
-                if(time > 0) cost = 200 + Math.round(time/60)*20;
-                else cost = 200;
-                _cost = cost + "k"; 
+                if(_loai_phong == "normal"){
+                    if(time > 0) cost = 200 + Math.round(time/60)*20;
+                    else cost = 200;
+                }else{
+                    if(time > 0) cost = 300 + Math.round(time/60)*30;
+                    else cost = 300;
+                }
             }else if(_phuong_thuc_thue == "day") {
                 if(_check_in[4] + _check_in[5] + _check_in[6] == datetime[4] + datetime[5] + datetime[6]){
-                    var cost = 400*(parseInt(datetime[8] + datetime[9]) - parseInt(_check_in[8] + _check_in[9])
-                                    + Math.ceil((parseInt(datetime[16] + datetime[17])-8)/24) );
-                    _cost = cost + "k";
+                    if(_loai_phong == "normal"){
+                        cost = 400*(parseInt(datetime[8] + datetime[9]) - parseInt(_check_in[8] + _check_in[9])
+                                + Math.ceil((parseInt(datetime[16] + datetime[17])-8)/24) );
+                    }else{
+                        cost = 600*(parseInt(datetime[8] + datetime[9]) - parseInt(_check_in[8] + _check_in[9])
+                                + Math.ceil((parseInt(datetime[16] + datetime[17])-8)/24) );
+                    }
                 }else{
                     var month;
                     switch (datetime[4] + datetime[5] + datetime[6]) {
@@ -206,12 +215,18 @@
                           break;
                     }
                     var year_in = _check_in[11] + _check_in[12] + _check_in[13] + _check_in[14];
-                    var cost = 400*(parseInt(datetime[8] + datetime[9]) + (new Date(year_in,month,0)).getDate()
-                                    - parseInt(_check_in[8] + _check_in[9])
-                                    + Math.ceil((parseInt(datetime[16] + datetime[17])-8)/24) );
-                    _cost = cost + "k";
+                    if(_loai_phong == "normal"){
+                        cost = 400*(parseInt(datetime[8] + datetime[9]) + (new Date(year_in,month,0)).getDate()
+                                - parseInt(_check_in[8] + _check_in[9])
+                                + Math.ceil((parseInt(datetime[16] + datetime[17])-8)/24) );
+                    }else{
+                        cost = 600*(parseInt(datetime[8] + datetime[9]) + (new Date(year_in,month,0)).getDate()
+                                - parseInt(_check_in[8] + _check_in[9])
+                                + Math.ceil((parseInt(datetime[16] + datetime[17])-8)/24) );
+                    }
                 }
             }
+            _cost = cost + "k";
             document.getElementById("cost").setAttribute("value", _cost);
             document.getElementById("pay").value = _cost;
         })

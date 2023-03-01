@@ -1,13 +1,33 @@
 <div class="mt-4 view">
-  <div class="static">
+  <div class="static" style="width: 28%;">
     <div class="mb-3 row">
       <label for="sum" class="col-sm-5 col-form-label">Tổng doanh thu:</label>
       <div class="col-sm-5">
         <input type="text" readonly class="form-control" style="text-align: center;" id="sum" name="sum" value=0>
       </div>
     </div>
+    <div class="mb-3 row">
+      <label for="search_ten_phong" class="col-sm-5 col-form-label">Tìm kiếm theo tên phòng:</label>
+      <div class="col-sm-5">
+        <input type="text" class="form-control" id="search_ten_phong" name="search_ten_phong">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="search_ten_nguoi" class="col-sm-5 col-form-label">Tìm kiếm theo tên người:</label>
+      <div class="col-sm-5">
+        <input type="text" class="form-control" id="search_ten_nguoi" name="search_ten_nguoi">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="search_id_nguoi" class="col-sm-5 col-form-label">Tìm kiếm theo CMT/CCCD:</label>
+      <div class="col-sm-5">
+        <input type="text" class="form-control" id="search_id_nguoi" name="search_id_nguoi">
+      </div>
+    </div>
+    
   </div>
-  <table class="table">
+
+  <table class="table" style="width: 62%;">
     <thead>
       <tr>
         <th scope="col">Id</th>
@@ -33,8 +53,8 @@
       <script>
         var _money = document.getElementById("thanh_toan_{{this.check_in}}").getAttribute("value");
         var money = parseInt(_money.replace('k', ''));
-        if(money > 0) {
-          document.getElementById("sum").setAttribute("value", parseInt(document.getElementById("sum").getAttribute("value").replace('k','')) + money);
+        if (money > 0) {
+          document.getElementById("sum").setAttribute("value", parseInt(document.getElementById("sum").getAttribute("value").replace('k', '')) + money);
           document.getElementById("sum").setAttribute("value", document.getElementById("sum").getAttribute("value") + 'k');
           console.log(document.getElementById("sum").getAttribute("value"));
         }
@@ -43,3 +63,35 @@
     </tbody>
   </table>
 </div>
+<script>
+  function search(search_input){
+    search_input.addEventListener("input", function () {
+      var searchString = search_input.value.toLowerCase();
+      for (var i = 1; i < rows.length; i++) {
+        var cells = rows[i].getElementsByTagName("td");
+        var match = false;
+        for (var j = 0; j < cells.length; j++) {
+          if (cells[j].textContent.toLowerCase().indexOf(searchString) > -1) {
+            match = true;
+            break;
+          }
+        }
+        if (match) {
+          rows[i].style.display = "";
+        } else {
+          rows[i].style.display = "none";
+        }
+      }
+    });
+  }
+
+  var rows = document.getElementsByTagName("tr");
+
+  var searchTenPhong = document.getElementById("search_ten_phong");
+  search(searchTenPhong);
+  var searchTenNguoi = document.getElementById("search_ten_nguoi");
+  search(searchTenNguoi);
+  var searchIdNguoi = document.getElementById("search_id_nguoi");
+  search(searchIdNguoi);
+  
+</script>
