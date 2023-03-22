@@ -151,7 +151,8 @@
                         + ((datetime[16] + datetime[17]) - (_check_in[16] + _check_in[17])) * 60;
                 } else {
                     time = (parseInt(datetime[19] + datetime[20]) - parseInt(_check_in[19] + _check_in[20]))
-                        + ((parseInt(datetime[16] + datetime[17]) + 24) - parseInt(_check_in[16] + _check_in[17])) * 60;
+                        + ((parseInt(datetime[16] + datetime[17]) + 24*(_check_in[8] + _check_in[9] - (datetime[8] + datetime[9]))) 
+                        - parseInt(_check_in[16] + _check_in[17])) * 60;
                 }
                 if (_loai_phong == "normal") {
                     if (time <= 120) cost = 100;
